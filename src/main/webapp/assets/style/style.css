@@ -21,8 +21,7 @@ button {
 body {
   font-family: Arial;
   font-size: 12px;
-  line-height: 13px;
-  background: url("images/site_bg.png") top center no-repeat fixed #000;
+  line-height: 1.3;
 }
 a {
   color: #000;
@@ -53,7 +52,7 @@ h3 {
   font-size: 12px;
   font-weight: bold;
   margin-bottom: 2px;
-  line-height: 13px;
+  line-height: 1.2;
 }
 h2 {
   font-size: 25px;
@@ -62,6 +61,9 @@ h2 {
 img {
   max-width: 100%;
   height: auto;
+}
+input {
+  box-sizing: border-box;
 }
 .alignleft {
   float: left;
@@ -114,13 +116,12 @@ div {
   display: none;
 }
 #nav {
-  display: block;
+  display: flex;
 }
 #f_menu {
   display: block;
 }
 .body_wrapper {
-  background: ;
   margin-top: 30px;
   margin-bottom: 30px;
 }
@@ -157,6 +158,7 @@ div {
   font-size: 12px;
   padding: 0 11px;
   line-height: 12px;
+  cursor: pointer;
 }
 .top_menu ul li a:hover {
   text-decoration: underline;
@@ -376,27 +378,33 @@ div {
   word-spacing: 2px;
 }
 .more {
-  background: url("images/plus.png") no-repeat scroll 57px 9px #cf0000;
+  background: url("/assets/img/plus.png") no-repeat scroll 57px 9px #cf0000;
   color: #fff;
   display: block;
   font-size: 10px;
   font-weight: bold;
-  padding: 4px 20px;
+  padding: 4px 15px;
   position: absolute;
   right: 0;
   text-transform: uppercase;
   top: 10px;
 }
+
+.fa-plus {
+  padding-left: 5px;
+}
+
 .popular_more {
-  background: url("images/plus.png") no-repeat scroll 57px 12px #cf0000;
+  background: url("/assets/img/plus.png") no-repeat scroll 57px 9px #cf0000;
   color: #fff;
-  display: block;
+  display: flex;
   font-size: 10px;
   font-weight: bold;
-  padding: 7px 20px;
+  padding: 7px 15px;
   text-transform: uppercase;
-  width: 74px;
+  width: 50px;
   margin-top: 10px;
+  justify-content: center;
 }
 .single_left_coloum {
   margin-left: 10px;
@@ -477,17 +485,30 @@ div {
 .single_sidebar {
   margin-bottom: 20px;
 }
+.popular-news {
+  margin-bottom: 0;
+}
 .news-letter {
-  padding: 10px;
+  /*padding: 10px;*/
   background: #e4e4e4;
 }
 .news-letter h2 {
-  font-family: bebasregular;
+  font-family: bebasregular, serif;
   font-size: 20px;
   margin-bottom: 5px;
   word-spacing: 2px;
 }
 .news-letter p {
+  padding: 10px 10px;
+  font-size: 15px;
+}
+.news-letter p:not(:last-child) {
+  border-bottom: 1px solid #cf0000;
+}
+.news-letter p:hover {
+  color: white;
+  background-color: #cf0000;
+  cursor: pointer;
 }
 .news-letter form input#name {
   border: 1px solid #999;
@@ -535,6 +556,29 @@ div {
   line-height: 17px;
   margin-top: 0;
 }
+.content-bottom__item {
+  display: flex;
+  border-bottom: 1px dotted #000;
+  border-top: 1px dotted #000;
+  padding: 20px 0;
+  column-gap: 20px;
+  height: 150px;
+}
+.content-bottom__img-container {
+  flex: 1;
+}
+.content-bottom__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.content-bottom__right {
+  width: 70%;
+}
+.content-bottom__title,
+.content-bottom__desc {
+  width: 85%;
+}
 .footer_top_area {
   border-bottom: 1px dotted #000;
   border-top: 1px dotted #000;
@@ -572,4 +616,13 @@ div {
 .copyright_text {
   line-height: 17px;
   text-align: center;
+}
+
+.truncate_text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-clamp: 3;
 }
