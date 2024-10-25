@@ -100,15 +100,17 @@ this template use File | Settings | File Templates. --%>
 
             <div class="row" style="padding: 20px 50px">
                 <div class="col-md-12">
-                    <form action="../asm/quan-ly-get-all" method="post">
+                    <form action="../asm/UploadServlet" method="post" enctype="multipart/form-data">
                         <h1> Thêm bài viết </h1>
 
                         <fieldset>
-
                             <legend><span class="number">1</span> Thông tin cơ bản</legend>
 
                             <label for="title">Title:</label>
                             <input type="text" required id="title" name="title">
+
+                            <label for="file">File: </label>
+                            <input type="file" name="file" id="file" style="margin-bottom: 20px">
 
                             <label for="content">Content:</label>
                             <textarea id="content" name="content" rows="7" required></textarea>

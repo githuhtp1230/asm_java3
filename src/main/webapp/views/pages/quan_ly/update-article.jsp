@@ -100,15 +100,27 @@ this template use File | Settings | File Templates. --%>
 
             <div class="row" style="padding: 20px 50px">
                 <div class="col-md-12">
-                    <form action="../asm/quan-ly-get-all" method="post">
-                        <h1> Thêm bài viết </h1>
+                    <form action="../asm/UploadServlet" method="post" enctype="multipart/form-data">
+                        <h1> Sửa bài viết </h1>
 
                         <fieldset>
 
                             <legend><span class="number">1</span> Thông tin cơ bản</legend>
 
+                            <label for="id">Id:</label>
+                            <input type="number" required id="id" name="id" value="${articleRequest.id}">
+
                             <label for="title">Title:</label>
                             <input type="text" required id="title" name="title" value="${articleRequest.title}">
+
+                            <c:if test="${not empty articleRequest.imageUrl}">
+                                <img src="${pageContext.request.contextPath}/assets/img/${articleRequest.imageUrl}" alt="Uploaded Image" style="max-width: 200px; margin-bottom: 20px;">
+                            </c:if>
+
+                            <br>
+
+                            <!-- Trường input để chọn file mới -->
+                            <input type="file" name="file" id="file" style="margin-bottom: 20px">
 
                             <label for="content">Content:</label>
                             <textarea id="content" name="content" rows="7" required>${articleRequest.content}</textarea>

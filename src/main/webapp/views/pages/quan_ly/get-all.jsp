@@ -1,7 +1,8 @@
 <c:forEach var="article" varStatus="i" items="${listBottom}">
+    <a href="../asm/item-detail?articleId=${article.id}">
     <div class="content-bottom__item">
         <figure class="content-bottom__img-container">
-            <img class="content-bottom__img" alt="" src="${article.imageUrl}"/>
+            <img class="content-bottom__img" alt="" src="${pageContext.request.contextPath}/assets/img/${article.imageUrl}"/>
         </figure>
         <div class="content-bottom__right">
             <div>
@@ -16,4 +17,5 @@
             </div>
         </div>
     </div>
+    </a>
 </c:forEach>
